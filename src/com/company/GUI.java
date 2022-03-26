@@ -30,12 +30,15 @@ public class GUI extends JFrame {
                     int returnvalue = bb.showOpenDialog(GUI.this);
                     if (returnvalue == JFileChooser.APPROVE_OPTION) {
                         File selectedFile = bb.getSelectedFile();
+                        try{
                         exc.read(selectedFile.getAbsolutePath());
                         JOptionPane.showMessageDialog(null, "Done", "Import", JOptionPane.PLAIN_MESSAGE);
-                    }
+                    } catch (Exception e1){
+                            JOptionPane.showMessageDialog(null, "файл не существует", "Error", JOptionPane.PLAIN_MESSAGE);
+                        }
 
 
-                } catch (HeadlessException headlessException) {
+                } }catch (HeadlessException HeadlessException) {
                     JOptionPane.showMessageDialog(null, "Not found", "Error", JOptionPane.PLAIN_MESSAGE);
                 }
 
@@ -55,8 +58,9 @@ public class GUI extends JFrame {
                     }
 
                 } catch (Exception ex) {
-                    ex.printStackTrace();
-                    JOptionPane.showMessageDialog(null, "Not found", "Error", JOptionPane.PLAIN_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "ошибка в пути фйла", "Error", JOptionPane.PLAIN_MESSAGE);
+                   // ex.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "ошибка в пути фйла", "Error", JOptionPane.PLAIN_MESSAGE);
                 }
 
             }

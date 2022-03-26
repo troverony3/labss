@@ -4,6 +4,7 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -41,6 +42,7 @@ public class Excel {
             workbook.close();
 
         } catch (IOException e) {
+            JOptionPane.showMessageDialog(null,"Файл не найден","Ошибка",JOptionPane.INFORMATION_MESSAGE);
             e.printStackTrace();
         }
     }
